@@ -1,0 +1,15 @@
+div {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: x-large;
+    background-color: rgb(255, 143, 143);
+    height: 60px;
+    align-items: center;
+}
+
+button {
+    position: absolute;
+    top: 55px; 
+    right: 1.25rem; 
+}
