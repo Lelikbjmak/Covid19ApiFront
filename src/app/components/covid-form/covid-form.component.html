@@ -1,0 +1,69 @@
+<div id="form-box">
+    <form [formGroup]="covidCasesForm" class="covid-details-form">
+
+        <h3><b>Ascertain</b> Covid Cases</h3>
+
+        <div class="form-input">
+            <label for="country-list">Country *</label>
+            <ng-multiselect-dropdown id="country-list" [placeholder]="'Select a country'" [settings]="dropdownSettings"
+                [data]="dropdownCountryList" formControlName="selectedCountries" (onSelect)="onCountrySelect($event)"
+                (onDeSelect)="onCountryDeselect($event)">
+            </ng-multiselect-dropdown>
+            <small class="invalid-input" ></small>
+        </div>
+
+        <div id="period-type">
+            <div>
+                <label for="period-day-radio">Day</label>
+                <input type="radio" name="period" id="period-day-radio" value="day" (change)="onPeriodChange()"
+                    checked>
+            </div>
+
+            <div>
+                <label for="period-day-radio">Period</label>
+                <input type="radio" name="period" id="period-term-radio" value="term" (change)="onPeriodChange()">
+            </div>
+        </div>
+
+        <div class="form-input">
+            <label>Choose {{isDayPeriod ? 'day' : 'first day of term'}} *</label>
+            <br>
+            <input type="date" id="first-date" formControlName="from" min="2020-02-25" max="{{ getCurrentDate() | date:'yyyy-MM-dd' }}">
+            <small class="invalid-input"></small>
+        </div>
+
+        <ng-container *ngIf="isDayPeriod == false">
+            <div class="form-input">
+                <label for="period-term-radio">Choose last day of term *</label>
+                <br>
+                <input type="date" id="last-date" formControlName="to" min="2020-02-25" max="{{ getCurrentDate() | date:'yyyy-MM-dd' }}">
+                <small class="invalid-input"></small>
+            </div>
+        </ng-container>
+
+        <input type="submit" value="Search" (click)="submit()" [disabled]="covidCasesForm.invalid">
+
+        <p id="loading" *ngIf="loading">Loading...</p>
+    </form>
+
+    <div id="info">
+        <div *ngIf="covidInfoDetails">
+            <div class="mininfo">
+                <p><b>Min:</b></p>
+                <div class="covid-info">
+                    <app-covid-details *ngFor="let detail of covidInfoDetails.min"
+                        [covidDetails]="detail"></app-covid-details>
+                </div>
+            </div>
+
+            <div class="maxinfo">
+                <hr>
+                <p><b>Max:</b></p>
+                <div class="covid-info">
+                    <app-covid-details *ngFor="let detail of covidInfoDetails.min"
+                        [covidDetails]="detail"></app-covid-details>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
