@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+.form-input:first-child {
+    margin-left: 0 auto;
+}
+
+.form-input {
+    margin-top: 1em;
+}
+
+#form-box {
+    font-size: x-large;
+    margin: 10% auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#form-box>div:last-child {
+    padding: 2em;
+    width: 20%;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 10%;
+}
+
+form {
+    padding: 2em;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 10%;
+    height: 450px;
+}
+
+form h3 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+form>div label {
+    font-size: small;
+    color: gray;
+}
+
+#country-list {
+    font-size: medium;
+    border: none;
+}
+
+#country-list input {
+    margin: 0;
+    border: none;
+}
+
+form input {
+    font-size: large;
+    width: 110%;
+    border: none;
+    border-bottom: 1px solid red;
+    background-color: transparent;
+}
+
+input[type='submit'] {
+    margin-top: 1.5em;
+    border-bottom: 1px solid red;
+    transition: font-weight 1s;
+    cursor: pointer;
+}
+
+input[type='submit']:disabled{
+    border-bottom-color: gray;
+    cursor: default;
+}
+
+input[type='submit']:hover:not(:disabled) {
+    font-weight: 800;
+}
+
+input:focus {
+    outline: none;
+}
+
+form-input>input:focus:not([type='radio']):not([type='submit']) {
+    outline: none;
+    box-shadow: 0px 1.5px 0px red;
+    -webkit-box-shadow: 0px 1.5px 0px red;
+}
+
+input[type="radio"]:checked {
+    accent-color: red;
+}
+
+#period-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#period-type div {
+    text-align: center;
+}
+
+.maxinfo>hr {
+    border-top: 1px solid red;
+}
+
+#info {
+    display: grid;
+    grid-template-columns: 2fr;
+}
+
+.covid-info {
+    font-size: medium;
+    overflow-y: scroll;
+    height: 170px;
+}
+
+.maxinfo {
+    margin-top: 25px;
+}
+
+#loading {
+    font-weight: 600;
+    font-size: medium;
+    text-align: center;
+}
+
+.invalid-input {
+    font-size: small;
+    color: red;
+}
